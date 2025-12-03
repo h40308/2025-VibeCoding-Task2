@@ -4,10 +4,10 @@
 /* CSS:BASE-START */
 /* 全站共用設定（請勿使用 ID 選擇器） */
 :root{
-  --bg: #0b1220;            /* 深色背景 */
-  --surface: #0f2233;       /* 深藍表面 */
-  --primary: #1e88e5;       /* 主色：偏青的深藍 */
-  --muted: #bfcbd6;         /* 淺灰文字 */
+  --bg: #0b1220;            
+  --surface: #0f2233;       
+  --primary: #1e88e5;       
+  --muted: #bfcbd6;         
   --muted-2: #9aa8b5;
   --max-width: 1100px;
 }
@@ -47,6 +47,7 @@ img {
 }
 
 a { color: inherit; text-decoration: none; }
+
 .visually-hidden {
   position: absolute !important;
   height: 1px; width: 1px;
@@ -57,7 +58,6 @@ a { color: inherit; text-decoration: none; }
 /* CSS:BASE-END */
 
 /* CSS:HERO-START */
-/* Hero 區相關樣式（只使用 class / element 選擇器） */
 .site-header {
   position: sticky;
   top: 0;
@@ -144,12 +144,10 @@ a { color: inherit; text-decoration: none; }
   background: linear-gradient(90deg, var(--primary), #1774c4);
   color: white;
   font-weight: 600;
-  text-decoration: none;
 }
 
 .hero-image-wrap {
   width: 100%;
-  display: block;
   margin-top: 0.5rem;
 }
 
@@ -161,36 +159,57 @@ a { color: inherit; text-decoration: none; }
 /* CSS:HERO-END */
 
 /* CSS:ABOUT-START */
-.section-about .section-title,
-.section-skills .section-title,
-.section-projects .section-title,
-.section-contact .section-title {
+.section-about .section-title {
   margin: 0 0 0.6rem 0;
   color: #fff;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
 }
 
-.section-about p,
-.section-skills p,
-.section-projects p,
-.section-contact p {
-  margin: 0 0 0.75rem 0;
+.section-about p {
+  margin: 0 0 0.9rem 0;
   color: var(--muted);
   max-width: 70ch;
 }
 
 .about-grid {
   display: grid;
-  gap: 1rem;
+  gap: 1.25rem;
+}
+
+.about-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted-2);
+}
+
+.about-list li {
+  margin-bottom: 0.45rem;
+}
+
+.about-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.about-btn {
+  display: inline-block;
+  padding: 0.55rem 1rem;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  color: white;
+  font-size: 0.95rem;
+  transition: background 160ms ease;
+}
+
+.about-btn:hover,
+.about-btn:focus {
+  background: rgba(255,255,255,0.12);
 }
 
 .about-figure {
   align-self: start;
-}
-
-.muted-small {
-  color: var(--muted-2);
-  font-size: 0.92rem;
 }
 /* CSS:ABOUT-END */
 
@@ -254,7 +273,6 @@ a { color: inherit; text-decoration: none; }
   border-radius: 8px;
   background: rgba(255,255,255,0.02);
   color: var(--muted);
-  text-decoration: none;
 }
 
 .footer {
@@ -268,7 +286,6 @@ a { color: inherit; text-decoration: none; }
 /* CSS:CONTACT-END */
 
 /* CSS:RWD-START */
-/* 手機優先；在寬螢幕上改善佈局 */
 @media (min-width: 480px) {
   .hero-title { font-size: 1.75rem; }
 }
@@ -283,7 +300,7 @@ a { color: inherit; text-decoration: none; }
 
   .about-grid {
     grid-template-columns: 1fr 340px;
-    gap: 1.25rem;
+    gap: 1.5rem;
     align-items: start;
   }
 
@@ -299,7 +316,6 @@ a { color: inherit; text-decoration: none; }
 
 /* ============== 額外小調整（可依需求覆寫） ============== */
 .small-muted { color: var(--muted-2); font-size: 0.92rem; }
-
 
 </style> </head> <body> <div class="page"> <header class="site-header"> <div class="container nav" role="navigation" aria-label="主要導覽"> <div class="site-logo">Your Name · Frontend Dev</div> <nav class="nav-list" aria-label="導覽連結"> <a class="nav-link" href="#hero">首頁</a> <a class="nav-link" href="#about">關於我</a> <a class="nav-link" href="#skills">技能</a> <a class="nav-link" href="#projects">作品集</a> <a class="nav-link" href="#contact">聯絡我</a> </nav> </div> </header>
 
@@ -320,7 +336,7 @@ a { color: inherit; text-decoration: none; }
 
       <div class="hero-image-wrap" aria-hidden="false">
         <figure class="about-figure">
-          <img src="https://source.unsplash.com/1200x800/?developer,laptop,desk" alt="在筆電前撰寫程式碼的前端開發者" loading="lazy" />
+          <img src="https://picsum.photos/1200/800?random=1" alt="在筆電前撰寫程式碼的前端開發者" loading="lazy" />
         </figure>
       </div>
     </div>
@@ -330,16 +346,41 @@ a { color: inherit; text-decoration: none; }
   <!-- SECTION:ABOUT-START -->
   <section id="about" class="section section-about" aria-labelledby="about-heading">
     <div class="container about-grid">
+
       <div>
-        <h2 id="about-heading" class="section-title">關於我（之後會用 Section SDD 替換）</h2>
-        <p>這裡目前是 About 區的占位內容，簡要說明將放置個人背景、工作經歷重點與價值觀。之後會用另一個 Prompt 產生正式內容，請把新的 section 程式碼整段貼回來，取代這一區。</p>
-        <p class="muted-small">提示：之後會用 Section SDD 的 Prompt 產生新的 section，請把新的 section 程式碼整段貼在本區註解中間，完全取代現在這一區。</p>
+        <h2 id="about-heading" class="section-title">關於我</h2>
+
+        <p>
+          我是一名專注於前端開發、網站教學與客製化接案的工程師。日常主要負責
+          前端介面切版、互動設計、RWD、可維護的元件化開發，以及協助學生與客戶
+          解決技術問題。
+        </p>
+
+        <p>
+          我重視溝通、喜歡教學，也習慣把複雜的概念整理得更清楚易懂。
+          在合作中，我會花時間理解使用者與客戶的真正需求，並以務實、可交付、可維護的方式完成每個任務。
+        </p>
+
+        <ul class="about-list">
+          <li>協助規劃前端架構、建立可維護的 UI 元件</li>
+          <li>將設計稿轉換為高度還原的 RWD 頁面</li>
+          <li>提供程式教學、改善學習路線、協助 Debug</li>
+        </ul>
+
+        <div class="about-actions">
+          <a class="about-btn" href="#projects">查看作品集</a>
+          <a class="about-btn" href="#contact">聯絡我</a>
+        </div>
       </div>
 
       <aside class="about-figure">
-        <img src="https://source.unsplash.com/800x600/?workspace,office,developer" alt="整齊的工作桌與筆電，象徵專業的工作環境" loading="lazy" />
-        <p class="small-muted" style="margin-top:0.5rem;">形象照示意（Unsplash）— 可替換為真人照。</p>
+        <img 
+          src="https://picsum.photos/900/700?random=2" 
+          alt="正在撰寫程式碼的工程師示意照片" 
+          loading="lazy"
+        />
       </aside>
+
     </div>
   </section>
   <!-- SECTION:ABOUT-END -->
@@ -429,4 +470,3 @@ a { color: inherit; text-decoration: none; }
 
 
 </div> </body> </html>
-<!--重新提交檢測用-->
